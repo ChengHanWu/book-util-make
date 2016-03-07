@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>web project - Make 使用筆記</title>
+      
+      
+      
+        <link rel="canonical" href="http://foreachsam.github.io/book-util-mkdocs/content/example/make-scripts/web-project/">
+      
+      
+        <meta name="author" content="foreachsam">
+      
+    
+    <meta property="og:url" content="http://foreachsam.github.io/book-util-mkdocs/content/example/make-scripts/web-project/">
+    <meta property="og:title" content="Make 使用筆記">
+    <meta property="og:image" content="http://foreachsam.github.io/book-util-mkdocs/content/example/make-scripts/web-project//../../../../">
+    <meta name="apple-mobile-web-app-title" content="Make 使用筆記">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../../../assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../../../assets/stylesheets/application-b64b728552.css">
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono">
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="../../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-red palette-accent-light-red">
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                應用範例 <i class="icon icon-link"></i>
+              
+            
+              
+                make scripts <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        web project
+      </div>
+    </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/foreachsam/book-util-mkdocs" title="@foreachsam/book-util-mkdocs on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="/" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>Make 使用筆記 </strong>
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="首頁" href="../../../..">
+      首頁
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">應用範例</span>
+    <ul>
+      
+        
+  <li>
+    <span class="section">make scripts</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="說明" href="../">
+      說明
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="web project" href="./">
+      web project
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="資料夾結構" href="#_2">
+                資料夾結構
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Makefile" href="#makefile">
+                Makefile
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Shell Script" href="#shell-script">
+                Shell Script
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="執行指令" href="#_3">
+                執行指令
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+            
+              
+              <li>
+                <a href="https://github.com/foreachsam/book-util-mkdocs" target="_blank" title="@foreachsam/book-util-mkdocs on GitHub">
+                  @foreachsam/book-util-mkdocs on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="_1">網站專案範例</h1>
+<h2 id="_2">資料夾結構</h2>
+<pre class="code"><code>./
+├── bin
+│   ├── deploy.sh
+│   ├── git-add.sh
+│   ├── git-commit.sh
+│   ├── git-config.sh
+│   ├── git-log.sh
+│   ├── git-pull.sh
+│   ├── git-push.sh
+│   ├── git-status.sh
+│   ├── usage.sh
+│   └── web-server.sh
+├── Makefile
+└── web
+    └── index.html
+
+2 directories, 12 files</code></pre>
+
+
+<h2 id="makefile">Makefile</h2>
+<p>「<a href="./../../../../../example/make-scripts/web-project/Makefile">Makefile</a>」內容如下</p>
+<pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
+THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
+
+.PHONY: usage web-server deploy git-add git-commit git-log git-pull git-push git-status
+
+usage:
+    @$(THE_BIN_DIR_PATH)/usage.sh
+
+web-server:
+    @$(THE_BIN_DIR_PATH)/web-server.sh
+
+deploy:
+    @$(THE_BIN_DIR_PATH)/deploy.sh
+
+git-add:
+    @$(THE_BIN_DIR_PATH)/git-add.sh
+
+git-commit:
+    @$(THE_BIN_DIR_PATH)/git-commit.sh
+
+git-log:
+        @$(THE_BIN_DIR_PATH)/git-log.sh
+
+git-pull:
+    @$(THE_BIN_DIR_PATH)/git-pull.sh
+
+git-push:
+    @$(THE_BIN_DIR_PATH)/git-push.sh
+
+git-status:
+    @$(THE_BIN_DIR_PATH)/git-status.sh</code></pre>
+
+
+<h2 id="shell-script">Shell Script</h2>
+<p>「<a href="./../../../../../example/make-scripts/web-project/bin/web-server.sh">bin/web-server.sh</a>」內容如下</p>
+<pre class="code"><code class="language-sh">#!/usr/bin/env bash
+
+THE_BASE_DIR_PATH=$(cd -P -- &quot;$(dirname -- &quot;$0&quot;)&quot; &amp;&amp; pwd -P)
+THE_WEB_DIR_PATH=$THE_BASE_DIR_PATH/../web
+
+#THE_SERVER_HOST=localhost
+#THE_SERVER_HOST=127.0.0.1
+THE_SERVER_HOST=0.0.0.0
+THE_SERVER_PORT=8080
+THE_SERVER_BIND=$THE_SERVER_HOST':'$THE_SERVER_PORT
+
+
+## PHP Built-in web server
+## http://php.net/manual/en/features.commandline.webserver.php
+
+cd $THE_WEB_DIR_PATH
+## php -S 0.0.0.0:8080
+php -S $THE_SERVER_BIND
+
+# php -S $THE_SERVER_BIND -t $THE_WEB_DIR_PATH
+
+
+## Python
+## Python 3
+## https://docs.python.org/3/library/http.server.html
+## python -m http.server 8080
+## python -m http.server 8080 --bind 127.0.0.1
+
+# python -m http.server $THE_SERVER_PORT
+# python -m http.server $THE_SERVER_PORT --bind $THE_SERVER_HOST
+
+## Python 2
+## https://docs.python.org/2/library/simplehttpserver.html
+## python -m SimpleHTTPServer 8080
+
+# python -m SimpleHTTPServer $THE_SERVER_PORT</code></pre>
+
+
+<p>利用「PHP / <a href="http://php.net/manual/en/features.commandline.webserver.php">Built-in web server</a>」來啟動「Web Server」。</p>
+<blockquote>
+<p>在Xubuntu環境下若要執行「<a href="http://manpages.ubuntu.com/manpages/trusty/man1/php5.1.html">php</a>」，只要執行「<code>sudo apt-get install php5-cli</code>」，安裝「<a href="http://packages.ubuntu.com/trusty/php5-cli">php5-cli</a>」這個套件就行了。</p>
+</blockquote>
+<p>也可以使用Pthon的版本，來啟動「Web Server」。</p>
+<ul>
+<li>Python3 是「<a href="https://docs.python.org/3/library/http.server.html">http.server</a>」。</li>
+<li>Python2 是「<a href="https://docs.python.org/2/library/simplehttpserver.html">SimpleHTTPServer</a>」。</li>
+</ul>
+<h2 id="_3">執行指令</h2>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ make</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>Usage: make [command]
+
+Ex:
+$ make
+$ make usage
+$ make web-server
+$ make deploy
+$ make git-add
+$ make git-commit
+$ make git-log
+$ make git-pull
+$ make git-push
+$ make git-status</code></pre>
+
+
+<p>執行</p>
+<pre class="code"><code>$ make web-server</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>PHP 5.5.9-1ubuntu4.14 Development Server started at Mon Mar  7 20:15:35 2016
+Listening on http://0.0.0.0:8080
+Document root is /home/user/Project/web-project/web
+Press Ctrl-C to quit.</code></pre>
+
+
+<p>觀看網頁</p>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ lynx http://0.0.0.0:8080</code></pre>
+
+
+<p>或是執行</p>
+<pre class="code"><code class="language-sh">$ firefox  http://0.0.0.0:8080</code></pre>
+          <aside class="copyright" role="note">
+            
+              Copyright (c) foreachsam &ndash;
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../" title="說明">
+          <span class="direction">
+            上一頁
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                說明
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div></article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../../../..';
+      var repo_id  = '';
+    </script>
+    <script src="../../../../assets/javascripts/application-a10a824a49.js"></script>
+    
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-56999876-1', 'foreachsam.github.io');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != window.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+      </script>
+    
+  </body>
+</html>
