@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>說明 - GNU Make 使用筆記</title>
+        <title>manual - GNU Make 使用筆記</title>
       
       
       
-        <link rel="canonical" href="https://foreachsam.github.io/book-util-make/content/example/make-scripts/">
+        <link rel="canonical" href="https://foreachsam.github.io/book-util-make/content/referance/manual/">
       
       
         <meta name="author" content="foreachsam">
       
     
-    <meta property="og:url" content="https://foreachsam.github.io/book-util-make/content/example/make-scripts/">
+    <meta property="og:url" content="https://foreachsam.github.io/book-util-make/content/referance/manual/">
     <meta property="og:title" content="GNU Make 使用筆記">
-    <meta property="og:image" content="https://foreachsam.github.io/book-util-make/content/example/make-scripts//../../../">
+    <meta property="og:image" content="https://foreachsam.github.io/book-util-make/content/referance/manual//../../../">
     <meta name="apple-mobile-web-app-title" content="GNU Make 使用筆記">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -92,12 +92,12 @@
           <span class="path">
             
               
-                應用範例 - make scripts <i class="icon icon-link"></i>
+                參考文件 <i class="icon icon-link"></i>
               
             
           </span>
         
-        說明
+        manual
       </div>
     </div>
     
@@ -162,67 +162,16 @@
       
         
   <li>
-    <a class="current" title="說明" href="./">
+    <a class="" title="說明" href="../../example/make-scripts/">
       說明
     </a>
-    
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="基本概念" href="#_1">
-                基本概念
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="撰寫「Makefile」" href="#makefile">
-                撰寫「Makefile」
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="執行指令" href="#_2">
-                執行指令
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="把指令分散到「Shell Script」" href="#shell-script">
-                把指令分散到「Shell Script」
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="執行指令" href="#_3">
-                執行指令
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="傳參數" href="#_4">
-                傳參數
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="更多參考" href="#_5">
-                更多參考
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="web project" href="web-project/">
+    <a class="" title="web project" href="../../example/make-scripts/web-project/">
       web project
     </a>
     
@@ -231,7 +180,7 @@
       
         
   <li>
-    <a class="" title="apt project" href="apt-project/">
+    <a class="" title="apt project" href="../../example/make-scripts/apt-project/">
       apt project
     </a>
     
@@ -249,9 +198,30 @@
       
         
   <li>
-    <a class="" title="manual" href="../../referance/manual/">
+    <a class="current" title="manual" href="./">
       manual
     </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="閱讀文件" href="#_1">
+                閱讀文件
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="相關套件" href="#_2">
+                相關套件
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -284,197 +254,97 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="make-npm-scriptscomposer-scripts">如何使用 make 來達到像是 「<a href="https://docs.npmjs.com/misc/scripts">npm scripts</a>」或是「<a href="https://getcomposer.org/doc/articles/scripts.md">composer scripts</a>」的功能</h1>
-<h2 id="_1">基本概念</h2>
-<h2 id="makefile">撰寫「Makefile」</h2>
-<p>「<a href="./../../../../example/make-scripts/concept-command-basic/Makefile">Makefile</a>」內容如下</p>
-<pre class="code"><code class="language-Makefile">.PHONY: usage status deploy
-
-usage:
-    echo make command
-
-status:
-    echo show status
-
-deploy:
-    echo deploying...</code></pre>
-
-
-<h2 id="_2">執行指令</h2>
-<p>執行</p>
-<pre class="code"><code class="language-sh">$ make</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>echo make command
-make command</code></pre>
-
-
-<p>執行</p>
-<pre class="code"><code class="language-sh">$ make usage</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>echo make command
-make command</code></pre>
-
-
-<blockquote>
-<p>這個結果跟上面直接下「<code>make</code>」是一樣的，因為若沒給第一個參數，就會找第一個Rule，「usage」在這個範例是放在第一個，所以「<code>make</code>」和「<code>make usage</code>」結果一樣。</p>
-</blockquote>
-<p>執行</p>
-<pre class="code"><code class="language-sh">$ make status</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>echo show status
-show status</code></pre>
-
-
-<p>執行</p>
-<pre class="code"><code class="language-sh">$ make deploy</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>echo deploying...
-deploying...</code></pre>
-
-
-<p>執行</p>
-<pre class="code"><code>$ make deploy -s</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>deploying...</code></pre>
-
-
-<blockquote>
-<p>這裡加上「-s」，就不會把指令也印出來，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Echoing.html">5.2 Recipe Echoing</a>」。</p>
-</blockquote>
-<p>或是改寫「Makefile」</p>
-<pre class="code"><code class="language-Makefile">.PHONY: usage status deploy
-
-usage:
-    @echo make command
-
-status:
-    @echo show status
-
-deploy:
-    @echo deploying...</code></pre>
-
-
-<blockquote>
-<p>關於「.PHONY」的用法，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">4.6 Phony Targets</a>」</p>
-</blockquote>
-<p>「<a href="https://github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-basic">完整範例</a>」</p>
-<h2 id="shell-script">把指令分散到「Shell Script」</h2>
-<p>上面的寫法，只需要一個「Makefile」搞定。</p>
-<p>而我個人慣用把這些指令拆解到個別的「Shell Script」去，就會如同下面的結構。</p>
-<pre class="code"><code>./
-├── bin
-│   ├── deploy.sh
-│   ├── status.sh
-│   └── usage.sh
-└── Makefile
-
-1 directory, 4 files</code></pre>
-
-
-<p>撰寫「<a href="./../../../../example/make-scripts/concept-command-scripts/Makefile">Makefile</a>」，內容如下</p>
-<pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
-THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
-THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
-
-.PHONY: usage status deploy
-
-usage:
-    @$(THE_BIN_DIR_PATH)/usage.sh
-
-status:
-    @$(THE_BIN_DIR_PATH)/status.sh
-
-deploy:
-    @$(THE_BIN_DIR_PATH)/deploy.sh</code></pre>
-
-
-<p>撰寫「<a href="./../../../../example/make-scripts/concept-command-scripts/bin/usage.sh">bin/usage.sh</a>」，內容如下</p>
-<pre class="code"><code class="language-sh">#!/usr/bin/env bash
-
-usage()
-{
-    echo &quot;&quot;
-    echo &quot;Usage: make [command]&quot;
-    echo
-    cat &lt;&lt;EOF
-Ex:
-$ make
-$ make usage
-$ make status
-$ make deploy
-EOF
-}
-
-usage</code></pre>
-
-
-<p>撰寫「<a href="./../../../../example/make-scripts/concept-command-scripts/bin/status.sh">bin/status.sh</a>」，內容如下</p>
-<pre class="code"><code class="language-sh">#!/usr/bin/env bash
-
-echo show status</code></pre>
-
-
-<p>撰寫「<a href="./../../../../example/make-scripts/concept-command-scripts/bin/deploy.sh">bin/deploy.sh</a>」，內容如下</p>
-<pre class="code"><code class="language-sh">#!/usr/bin/env bash
-
-echo deploying...</code></pre>
-
-
-<h2 id="_3">執行指令</h2>
-<p>執行</p>
-<pre class="code"><code class="language-sh">$ make</code></pre>
-
-
-<p>或是執行</p>
-<pre class="code"><code class="language-sh">$ make usage</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>Usage: make [command]
-
-Ex:
-$ make
-$ make usage
-$ make status
-$ make deploy</code></pre>
-
-
-<p>執行</p>
-<pre class="code"><code>$ make status</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>show status</code></pre>
-
-
-<p>執行</p>
-<pre class="code"><code>$ make deploy</code></pre>
-
-
-<p>顯示</p>
-<pre class="code"><code>deploying...</code></pre>
-
-
-<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-scripts">完整範例</a>」</p>
-<h2 id="_4">傳參數</h2>
-<p>尚未研究傳參數的方式，因為在工作流程上，就是要把一些常用的動作包在一起，所以就直接把參數寫死在script上了。</p>
-<p>只需要下「<code>make [command]</code>」就行了。</p>
-<h2 id="_5">更多參考</h2>
+          <h1 id="manual">manual</h1>
+<h2 id="_1">閱讀文件</h2>
 <ul>
-<li>GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">4.6 Phony Targets</a></li>
-<li>GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Echoing.html">5.2 Recipe Echoing</a></li>
-<li>用Open Source工具開發軟體: 新軟體開發關念 / <a href="http://www.study-area.org/cyril/opentools/opentools/makefile.html">Chapter 5. Makefile撰寫</a></li>
+<li>$ man 1 <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/make.1.html">make</a></li>
+<li>$ man 1posix <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/make.1posix.html">make</a></li>
+<li>$ info make</li>
+<li>$ firefox /usr/share/doc/make-doc/make.html</li>
+<li>$ firefox <a href="https://www.gnu.org/software/make/manual/make.html">https://www.gnu.org/software/make/manual/make.html</a></li>
+<li>$ firefxo <a href="https://www.gnu.org/software/make/manual/html_node/index.html">https://www.gnu.org/software/make/manual/html_node/index.html</a></li>
 </ul>
+<h2 id="_2">相關套件</h2>
+<p>要執行「<code>$ man 1 make</code>」，必須先安裝「<a href="http://packages.ubuntu.com/trusty/make">make</a>」這個套件</p>
+<p>安裝</p>
+<pre class="code"><code class="language-sh">$ sudo apt-get install make</code></pre>
+
+
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ dpkg -L make  | grep make.1</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>/usr/share/man/man1/make.1.gz</code></pre>
+
+
+<p>================================================</p>
+<p>要執行「<code>$ man 1posix make</code>」，必須先安裝「<a href="http://packages.ubuntu.com/trusty/manpages-posix">manpages-posix</a>」這個套件</p>
+<p>安裝</p>
+<pre class="code"><code class="language-sh">$ sudo apt-get install manpages-posix</code></pre>
+
+
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ dpkg -L manpages-posix  | grep make</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>/usr/share/man/man1/make.1posix.gz</code></pre>
+
+
+<p>================================================</p>
+<p>要執行「<code>$ info make</code>」，必須先安裝「<a href="http://packages.ubuntu.com/trusty/make-doc">make-doc</a>」這個套件</p>
+<p>安裝</p>
+<pre class="code"><code class="language-sh">$ sudo apt-get install make-doc</code></pre>
+
+
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ dpkg -L make-doc  | grep make.info</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>/usr/share/info/make.info-2.gz
+/usr/share/info/make.info.gz
+/usr/share/info/make.info-1.gz</code></pre>
+
+
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ dpkg -L make-doc  | grep html</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>/usr/share/doc/make-doc/make.html
+/usr/share/doc/make-doc/make_1.html
+/usr/share/doc/make-doc/make_10.html
+/usr/share/doc/make-doc/make_11.html
+/usr/share/doc/make-doc/make_12.html
+/usr/share/doc/make-doc/make_13.html
+/usr/share/doc/make-doc/make_14.html
+/usr/share/doc/make-doc/make_15.html
+/usr/share/doc/make-doc/make_16.html
+/usr/share/doc/make-doc/make_17.html
+/usr/share/doc/make-doc/make_18.html
+/usr/share/doc/make-doc/make_19.html
+/usr/share/doc/make-doc/make_2.html
+/usr/share/doc/make-doc/make_20.html
+/usr/share/doc/make-doc/make_21.html
+/usr/share/doc/make-doc/make_22.html
+/usr/share/doc/make-doc/make_23.html
+/usr/share/doc/make-doc/make_24.html
+/usr/share/doc/make-doc/make_25.html
+/usr/share/doc/make-doc/make_26.html
+/usr/share/doc/make-doc/make_27.html
+/usr/share/doc/make-doc/make_3.html
+/usr/share/doc/make-doc/make_4.html
+/usr/share/doc/make-doc/make_5.html
+/usr/share/doc/make-doc/make_6.html
+/usr/share/doc/make-doc/make_7.html
+/usr/share/doc/make-doc/make_8.html
+/usr/share/doc/make-doc/make_9.html
+/usr/share/doc/make-doc/make_abt.html
+/usr/share/doc/make-doc/make_fot.html
+/usr/share/doc/make-doc/make_ovr.html
+/usr/share/doc/make-doc/make_toc.html</code></pre>
           <aside class="copyright" role="note">
             
               Copyright (c) foreachsam &ndash;
@@ -493,7 +363,7 @@ $ make deploy</code></pre>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../.." title="首頁">
+        <a href="../../example/make-scripts/apt-project/" title="apt project">
           <span class="direction">
             上一頁
           </span>
@@ -503,7 +373,7 @@ $ make deploy</code></pre>
             </div>
             <div class="stretch">
               <div class="title">
-                首頁
+                apt project
               </div>
             </div>
           </div>
@@ -511,22 +381,6 @@ $ make deploy</code></pre>
       
     </div>
     <div class="next">
-      
-        <a href="web-project/" title="web project">
-          <span class="direction">
-            下一頁
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                web project
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>

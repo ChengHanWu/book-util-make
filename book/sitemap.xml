@@ -12,8 +12,30 @@
     
         
     <url>
-     <loc>https://foreachsam.github.io/book-util-make</loc>
-     <lastmod></lastmod>
+     <loc>https://foreachsam.github.io/book-util-make/content/example/make-scripts/</loc>
+     <lastmod>2016-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://foreachsam.github.io/book-util-make/content/example/make-scripts/web-project/</loc>
+     <lastmod>2016-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://foreachsam.github.io/book-util-make/content/example/make-scripts/apt-project/</loc>
+     <lastmod>2016-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://foreachsam.github.io/book-util-make/content/referance/manual/</loc>
+     <lastmod>2016-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
