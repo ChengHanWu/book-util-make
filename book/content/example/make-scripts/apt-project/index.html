@@ -294,7 +294,7 @@
 
 
 <h2 id="makefile">Makefile</h2>
-<p>「<a href="./../../../../../../example/make-scripts/apt-project/Makefile">Makefile</a>」內容如下</p>
+<p>「<a href="./../../../../../example/make-scripts/apt-project/Makefile">Makefile</a>」內容如下</p>
 <pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
@@ -329,7 +329,7 @@ for APP_DIR_PATH in $THE_APP_DIR_PATH/* ; do
 done</code></pre>
 
 
-<p>「<a href="./../../../../../../example/make-scripts/apt-project/bin/apt-install.sh">bin/apt-install.sh</a>」內容如下</p>
+<p>「<a href="./../../../../../example/make-scripts/apt-project/bin/apt-install.sh">bin/apt-install.sh</a>」內容如下</p>
 <pre class="code"><code class="language-sh">#!/usr/bin/env bash
 
 THE_BASE_DIR_PATH=$(cd -P -- &quot;$(dirname -- &quot;$0&quot;)&quot; &amp;&amp; pwd -P)
