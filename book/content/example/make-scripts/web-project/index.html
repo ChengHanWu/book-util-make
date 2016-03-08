@@ -262,6 +262,7 @@
         <div class="wrapper">
           
           <h1 id="_1">網站專案範例</h1>
+<p>「<a href="https://github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/web-project">完整範例</a>」。</p>
 <h2 id="_2">資料夾結構</h2>
 <pre class="code"><code>./
 ├── bin
@@ -283,7 +284,7 @@
 
 
 <h2 id="makefile">Makefile</h2>
-<p>「<a href="./../../../../../example/make-scripts/web-project/Makefile">Makefile</a>」內容如下</p>
+<p>「<a href="./../../../../../../example/make-scripts/web-project/Makefile">Makefile</a>」內容如下</p>
 <pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
@@ -319,7 +320,7 @@ git-status:
 
 
 <h2 id="shell-script">Shell Script</h2>
-<p>「<a href="./../../../../../example/make-scripts/web-project/bin/web-server.sh">bin/web-server.sh</a>」內容如下</p>
+<p>「<a href="./../../../../../../example/make-scripts/web-project/bin/web-server.sh">bin/web-server.sh</a>」內容如下</p>
 <pre class="code"><code class="language-sh">#!/usr/bin/env bash
 
 THE_BASE_DIR_PATH=$(cd -P -- &quot;$(dirname -- &quot;$0&quot;)&quot; &amp;&amp; pwd -P)
@@ -362,11 +363,23 @@ php -S $THE_SERVER_BIND
 <blockquote>
 <p>在Xubuntu環境下若要執行「<a href="http://manpages.ubuntu.com/manpages/trusty/man1/php5.1.html">php</a>」，只要執行「<code>sudo apt-get install php5-cli</code>」，安裝「<a href="http://packages.ubuntu.com/trusty/php5-cli">php5-cli</a>」這個套件就行了。</p>
 </blockquote>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ php -S 0.0.0.0:8080</code></pre>
+
+
 <p>也可以使用Pthon的版本，來啟動「Web Server」。</p>
 <ul>
 <li>Python3 是「<a href="https://docs.python.org/3/library/http.server.html">http.server</a>」。</li>
 <li>Python2 是「<a href="https://docs.python.org/2/library/simplehttpserver.html">SimpleHTTPServer</a>」。</li>
 </ul>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ python3 -m http.server 8080 --bind 0.0.0.0</code></pre>
+
+
+<p>或是</p>
+<pre class="code"><code class="language-sh">$ python -m SimpleHTTPServer 8080</code></pre>
+
+
 <h2 id="_3">執行指令</h2>
 <p>執行</p>
 <pre class="code"><code class="language-sh">$ make</code></pre>

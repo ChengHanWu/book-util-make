@@ -282,7 +282,7 @@
           <h1 id="make-npm-scriptscomposer-scripts">如何使用 make 來達到像是 「<a href="https://docs.npmjs.com/misc/scripts">npm scripts</a>」或是「<a href="https://getcomposer.org/doc/articles/scripts.md">composer scripts</a>」的功能</h1>
 <h2 id="_1">基本概念</h2>
 <h2 id="makefile">撰寫「Makefile」</h2>
-<p>「<a href="./../../../../../example/make-scripts/concept-command-basic/Makefile">Makefile</a>」內容如下</p>
+<p>「<a href="./../../../../../../example/make-scripts/concept-command-basic/Makefile">Makefile</a>」內容如下</p>
 <pre class="code"><code class="language-Makefile">.PHONY: usage status deploy
 
 usage:
@@ -344,7 +344,7 @@ deploying...</code></pre>
 
 
 <blockquote>
-<p>這裡加上「-s」，就會不會把指令也印出來，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Echoing.html">5.2 Recipe Echoing</a>」。</p>
+<p>這裡加上「-s」，就不會把指令也印出來，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Echoing.html">5.2 Recipe Echoing</a>」。</p>
 </blockquote>
 <p>或是改寫「Makefile」</p>
 <pre class="code"><code class="language-Makefile">.PHONY: usage status deploy
@@ -362,6 +362,7 @@ deploy:
 <blockquote>
 <p>關於「.PHONY」的用法，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">4.6 Phony Targets</a>」</p>
 </blockquote>
+<p>「<a href="https://github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-basic">完整範例</a>」</p>
 <h2 id="shell-script">把指令分散到「Shell Script」</h2>
 <p>上面的寫法，只需要一個「Makefile」搞定。</p>
 <p>而我個人慣用把這些指令拆解到個別的「Shell Script」去，就會如同下面的結構。</p>
@@ -375,7 +376,7 @@ deploy:
 1 directory, 4 files</code></pre>
 
 
-<p>撰寫「<a href="./../../../../../example/make-scripts/concept-command-scripts/Makefile">Makefile</a>」，內容如下</p>
+<p>撰寫「<a href="./../../../../../../example/make-scripts/concept-command-scripts/Makefile">Makefile</a>」，內容如下</p>
 <pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
@@ -392,7 +393,7 @@ deploy:
     @$(THE_BIN_DIR_PATH)/deploy.sh</code></pre>
 
 
-<p>撰寫「<a href="./../../../../../example/make-scripts/concept-command-scripts/bin/usage.sh">bin/usage.sh</a>」，內容如下</p>
+<p>撰寫「<a href="./../../../../../../example/make-scripts/concept-command-scripts/bin/usage.sh">bin/usage.sh</a>」，內容如下</p>
 <pre class="code"><code class="language-sh">#!/usr/bin/env bash
 
 usage()
@@ -412,13 +413,13 @@ EOF
 usage</code></pre>
 
 
-<p>撰寫「<a href="./../../../../../example/make-scripts/concept-command-scripts/bin/status.sh">bin/status.sh</a>」，內容如下</p>
+<p>撰寫「<a href="./../../../../../../example/make-scripts/concept-command-scripts/bin/status.sh">bin/status.sh</a>」，內容如下</p>
 <pre class="code"><code class="language-sh">#!/usr/bin/env bash
 
 echo show status</code></pre>
 
 
-<p>撰寫「<a href="./../../../../../example/make-scripts/concept-command-scripts/bin/deploy.sh">bin/deploy.sh</a>」，內容如下</p>
+<p>撰寫「<a href="./../../../../../../example/make-scripts/concept-command-scripts/bin/deploy.sh">bin/deploy.sh</a>」，內容如下</p>
 <pre class="code"><code class="language-sh">#!/usr/bin/env bash
 
 echo deploying...</code></pre>
@@ -459,6 +460,7 @@ $ make deploy</code></pre>
 <pre class="code"><code>deploying...</code></pre>
 
 
+<p>「<a href="https://github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-scripts">完整範例</a>」</p>
 <h2 id="_4">傳參數</h2>
 <p>尚未研究傳參數的方式，因為在工作流程上，就是要把一些常用的動作包在一起，所以就直接把參數寫死在script上了。</p>
 <p>只需要下「<code>make [command]</code>」就行了。</p>
