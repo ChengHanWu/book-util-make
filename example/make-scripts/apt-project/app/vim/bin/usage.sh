@@ -17,6 +17,7 @@ $ make usage
 $ make install
 $ make apt-install
 $ make configure
+$ make clean
 EOF
 }
 

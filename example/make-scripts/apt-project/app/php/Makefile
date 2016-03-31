@@ -18,3 +18,6 @@ apt-install:
 
 configure:
 	@$(THE_BIN_DIR_PATH)/configure.sh
+
+clean:
+	@$(THE_BIN_DIR_PATH)/clean.sh
