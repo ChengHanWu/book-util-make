@@ -9,45 +9,45 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>ex - web project - GNU Make 使用筆記</title>
+        <title>make - GNU Make 使用筆記</title>
       
       
       
-        <link rel="canonical" href="https://foreachsam.github.io/book-util-make/book/content/example/make-scripts/web-project/">
+        <link rel="canonical" href="https://foreachsam.github.io/book-util-make/book/content/command/make/">
       
       
         <meta name="author" content="foreachsam">
       
     
-    <meta property="og:url" content="https://foreachsam.github.io/book-util-make/book/content/example/make-scripts/web-project/">
+    <meta property="og:url" content="https://foreachsam.github.io/book-util-make/book/content/command/make/">
     <meta property="og:title" content="GNU Make 使用筆記">
-    <meta property="og:image" content="https://foreachsam.github.io/book-util-make/book/content/example/make-scripts/web-project//../../../../">
+    <meta property="og:image" content="https://foreachsam.github.io/book-util-make/book/content/command/make//../../../">
     <meta name="apple-mobile-web-app-title" content="GNU Make 使用筆記">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="../../../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon-e565ddfa3b.ico">
     <style>
       @font-face {
       	font-family: 'Icon';
-      	src: url('../../../../assets/fonts/icon.eot?52m981');
-      	src: url('../../../../assets/fonts/icon.eot?#iefix52m981')
+      	src: url('../../../assets/fonts/icon.eot?52m981');
+      	src: url('../../../assets/fonts/icon.eot?#iefix52m981')
                format('embedded-opentype'),
-      		   url('../../../../assets/fonts/icon.woff?52m981')
+      		   url('../../../assets/fonts/icon.woff?52m981')
                format('woff'),
-      		   url('../../../../assets/fonts/icon.ttf?52m981')
+      		   url('../../../assets/fonts/icon.ttf?52m981')
                format('truetype'),
-      		   url('../../../../assets/fonts/icon.svg?52m981#icon')
+      		   url('../../../assets/fonts/icon.svg?52m981#icon')
                format('svg');
       	font-weight: normal;
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="../../../../assets/stylesheets/application-b64b728552.css">
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-b64b728552.css">
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/palettes-05ab2406df.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/palettes-05ab2406df.css">
     
     
       
@@ -64,7 +64,7 @@
       </style>
     
     
-    <script src="../../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
     
   </head>
   
@@ -92,12 +92,12 @@
           <span class="path">
             
               
-                應用範例 - make scripts <i class="icon icon-link"></i>
+                command <i class="icon icon-link"></i>
               
             
           </span>
         
-        ex - web project
+        make
       </div>
     </div>
     
@@ -148,7 +148,7 @@
           
             
   <li>
-    <a class="" title="首頁" href="../../../..">
+    <a class="" title="首頁" href="../../..">
       首頁
     </a>
     
@@ -162,7 +162,7 @@
       
         
   <li>
-    <a class="" title="manual" href="../../../referance/manual/">
+    <a class="" title="manual" href="../../referance/manual/">
       manual
     </a>
     
@@ -180,9 +180,54 @@
       
         
   <li>
-    <a class="" title="make" href="../../../command/make/">
+    <a class="current" title="make" href="./">
       make
     </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="觀看 help" href="#help">
+                觀看 help
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="觀看版本" href="#_1">
+                觀看版本
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="執行指令" href="#_2">
+                執行指令
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="觀看 manpage" href="#manpage">
+                觀看 manpage
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="查詢 make 放在那個位置" href="#make_1">
+                查詢 make 放在那個位置
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="查詢 make 屬於那個套件" href="#make_2">
+                查詢 make 屬於那個套件
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -198,7 +243,7 @@
       
         
   <li>
-    <a class="" title="make scripts 概念說明" href="../">
+    <a class="" title="make scripts 概念說明" href="../../example/make-scripts/">
       make scripts 概念說明
     </a>
     
@@ -207,49 +252,16 @@
       
         
   <li>
-    <a class="current" title="ex - web project" href="./">
+    <a class="" title="ex - web project" href="../../example/make-scripts/web-project/">
       ex - web project
     </a>
-    
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="資料夾結構" href="#_2">
-                資料夾結構
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Makefile" href="#makefile">
-                Makefile
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Shell Script" href="#shell-script">
-                Shell Script
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="執行指令" href="#_3">
-                執行指令
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="ex - apt project" href="../apt-project/">
+    <a class="" title="ex - apt project" href="../../example/make-scripts/apt-project/">
       ex - apt project
     </a>
     
@@ -284,164 +296,119 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="_1">網站專案範例</h1>
-<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/web-project">完整範例</a>」。</p>
-<h2 id="_2">資料夾結構</h2>
-<pre class="code"><code>./
-├── bin
-│   ├── deploy.sh
-│   ├── git-add.sh
-│   ├── git-commit.sh
-│   ├── git-config.sh
-│   ├── git-log.sh
-│   ├── git-pull.sh
-│   ├── git-push.sh
-│   ├── git-status.sh
-│   ├── usage.sh
-│   └── web-server.sh
-├── Makefile
-└── web
-    └── index.html
-
-2 directories, 12 files</code></pre>
-
-
-<h2 id="makefile">Makefile</h2>
-<p>「<a href="./../../../../../example/make-scripts/web-project/Makefile">Makefile</a>」內容如下</p>
-<pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
-THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
-THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
-
-.PHONY: usage web-server deploy git-add git-commit git-log git-pull git-push git-status
-
-usage:
-    @$(THE_BIN_DIR_PATH)/usage.sh
-
-web-server:
-    @$(THE_BIN_DIR_PATH)/web-server.sh
-
-deploy:
-    @$(THE_BIN_DIR_PATH)/deploy.sh
-
-git-add:
-    @$(THE_BIN_DIR_PATH)/git-add.sh
-
-git-commit:
-    @$(THE_BIN_DIR_PATH)/git-commit.sh
-
-git-log:
-        @$(THE_BIN_DIR_PATH)/git-log.sh
-
-git-pull:
-    @$(THE_BIN_DIR_PATH)/git-pull.sh
-
-git-push:
-    @$(THE_BIN_DIR_PATH)/git-push.sh
-
-git-status:
-    @$(THE_BIN_DIR_PATH)/git-status.sh</code></pre>
-
-
-<h2 id="shell-script">Shell Script</h2>
-<p>「<a href="./../../../../../example/make-scripts/web-project/bin/web-server.sh">bin/web-server.sh</a>」內容如下</p>
-<pre class="code"><code class="language-sh">#!/usr/bin/env bash
-
-THE_BASE_DIR_PATH=$(cd -P -- &quot;$(dirname -- &quot;$0&quot;)&quot; &amp;&amp; pwd -P)
-THE_WEB_DIR_PATH=$THE_BASE_DIR_PATH/../web
-
-#THE_SERVER_HOST=localhost
-#THE_SERVER_HOST=127.0.0.1
-THE_SERVER_HOST=0.0.0.0
-THE_SERVER_PORT=8080
-THE_SERVER_BIND=$THE_SERVER_HOST':'$THE_SERVER_PORT
-
-
-## PHP Built-in web server
-## http://php.net/manual/en/features.commandline.webserver.php
-
-cd $THE_WEB_DIR_PATH
-## php -S 0.0.0.0:8080
-php -S $THE_SERVER_BIND
-
-# php -S $THE_SERVER_BIND -t $THE_WEB_DIR_PATH
-
-
-## Python
-## Python 3
-## https://docs.python.org/3/library/http.server.html
-## python -m http.server 8080
-## python -m http.server 8080 --bind 127.0.0.1
-
-# python -m http.server $THE_SERVER_PORT
-# python -m http.server $THE_SERVER_PORT --bind $THE_SERVER_HOST
-
-## Python 2
-## https://docs.python.org/2/library/simplehttpserver.html
-## python -m SimpleHTTPServer 8080
-
-# python -m SimpleHTTPServer $THE_SERVER_PORT</code></pre>
-
-
-<p>利用「PHP / <a href="http://php.net/manual/en/features.commandline.webserver.php">Built-in web server</a>」來啟動「Web Server」。</p>
-<blockquote>
-<p>在Xubuntu環境下若要執行「<a href="http://manpages.ubuntu.com/manpages/trusty/man1/php5.1.html">php</a>」，只要執行「<code>sudo apt-get install php5-cli</code>」，安裝「<a href="http://packages.ubuntu.com/trusty/php5-cli">php5-cli</a>」這個套件就行了。</p>
-</blockquote>
+          <h1 id="make">指令 make</h1>
+<h2 id="help">觀看 help</h2>
 <p>執行</p>
-<pre class="code"><code class="language-sh">$ php -S 0.0.0.0:8080</code></pre>
+<pre class="code"><code class="language-sh">$ make --help</code></pre>
 
 
-<p>也可以使用Pthon的版本，來啟動「Web Server」。</p>
-<ul>
-<li>Python3 是「<a href="https://docs.python.org/3/library/http.server.html">http.server</a>」。</li>
-<li>Python2 是「<a href="https://docs.python.org/2/library/simplehttpserver.html">SimpleHTTPServer</a>」。</li>
-</ul>
+<p>或是執行</p>
+<pre class="code"><code class="language-sh">$ make -h</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>Usage: make [options] [target] ...
+Options:
+  -b, -m                      Ignored for compatibility.
+  -B, --always-make           Unconditionally make all targets.
+  -C DIRECTORY, --directory=DIRECTORY
+                              Change to DIRECTORY before doing anything.
+  -d                          Print lots of debugging information.
+  --debug[=FLAGS]             Print various types of debugging information.
+  -e, --environment-overrides
+                              Environment variables override makefiles.
+  -f FILE, --file=FILE, --makefile=FILE
+                              Read FILE as a makefile.
+  -h, --help                  Print this message and exit.
+  -i, --ignore-errors         Ignore errors from commands.
+  -I DIRECTORY, --include-dir=DIRECTORY
+                              Search DIRECTORY for included makefiles.
+  -j [N], --jobs[=N]          Allow N jobs at once; infinite jobs with no arg.
+  -k, --keep-going            Keep going when some targets can't be made.
+  -l [N], --load-average[=N], --max-load[=N]
+                              Don't start multiple jobs unless load is below N.
+  -L, --check-symlink-times   Use the latest mtime between symlinks and target.
+  -n, --just-print, --dry-run, --recon
+                              Don't actually run any commands; just print them.
+  -o FILE, --old-file=FILE, --assume-old=FILE
+                              Consider FILE to be very old and don't remake it.
+  -p, --print-data-base       Print make's internal database.
+  -q, --question              Run no commands; exit status says if up to date.
+  -r, --no-builtin-rules      Disable the built-in implicit rules.
+  -R, --no-builtin-variables  Disable the built-in variable settings.
+  -s, --silent, --quiet       Don't echo commands.
+  -S, --no-keep-going, --stop
+                              Turns off -k.
+  -t, --touch                 Touch targets instead of remaking them.
+  -v, --version               Print the version number of make and exit.
+  -w, --print-directory       Print the current directory.
+  --no-print-directory        Turn off -w, even if it was turned on implicitly.
+  -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE
+                              Consider FILE to be infinitely new.
+  --warn-undefined-variables  Warn when an undefined variable is referenced.
+
+This program built for x86_64-pc-linux-gnu
+Report bugs to &lt;bug-make@gnu.org&gt;</code></pre>
+
+
+<h2 id="_1">觀看版本</h2>
 <p>執行</p>
-<pre class="code"><code class="language-sh">$ python3 -m http.server 8080 --bind 0.0.0.0</code></pre>
+<pre class="code"><code class="language-sh">$ make --version</code></pre>
 
 
-<p>或是</p>
-<pre class="code"><code class="language-sh">$ python -m SimpleHTTPServer 8080</code></pre>
+<p>或是執行</p>
+<pre class="code"><code class="language-sh">$ make -v</code></pre>
 
 
-<h2 id="_3">執行指令</h2>
+<p>顯示</p>
+<pre class="code"><code>GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for x86_64-pc-linux-gnu</code></pre>
+
+
+<h2 id="_2">執行指令</h2>
+<p>若目前這個資料夾，沒有「Makefile」這個檔案</p>
 <p>執行</p>
 <pre class="code"><code class="language-sh">$ make</code></pre>
 
 
 <p>顯示</p>
-<pre class="code"><code>Usage: make [command]
-
-Ex:
-$ make
-$ make usage
-$ make web-server
-$ make deploy
-$ make git-add
-$ make git-commit
-$ make git-log
-$ make git-pull
-$ make git-push
-$ make git-status</code></pre>
+<pre class="code"><code>make: *** No targets specified and no makefile found.  Stop.</code></pre>
 
 
+<p>也可指定使用其他的「Makefile」，加入參數「-f」指定「some_make_file」</p>
+<pre class="code"><code class="language-sh">$ make -f some_make_file</code></pre>
+
+
+<h2 id="manpage">觀看 manpage</h2>
 <p>執行</p>
-<pre class="code"><code>$ make web-server</code></pre>
+<pre class="code"><code class="language-sh">$ man make</code></pre>
+
+
+<p>可以看到「<a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/make.1.html">make</a>」的使用說明。</p>
+<h2 id="make_1">查詢 make 放在那個位置</h2>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ whereis make</code></pre>
 
 
 <p>顯示</p>
-<pre class="code"><code>PHP 5.5.9-1ubuntu4.14 Development Server started at Mon Mar  7 20:15:35 2016
-Listening on http://0.0.0.0:8080
-Document root is /home/user/Project/web-project/web
-Press Ctrl-C to quit.</code></pre>
+<pre class="code"><code>make: /usr/bin/make /usr/bin/X11/make /usr/share/man/man1/make.1.gz /usr/share/man/man1/make.1posix.gz</code></pre>
 
 
-<p>觀看網頁</p>
+<h2 id="make_2">查詢 make 屬於那個套件</h2>
 <p>執行</p>
-<pre class="code"><code class="language-sh">$ lynx http://0.0.0.0:8080</code></pre>
+<pre class="code"><code class="language-sh">$ dpkg -S /usr/bin/make</code></pre>
 
 
-<p>或是執行</p>
-<pre class="code"><code class="language-sh">$ firefox http://0.0.0.0:8080</code></pre>
+<p>顯示</p>
+<pre class="code"><code>make: /usr/bin/make</code></pre>
+
+
+<p>表示「/usr/bin/make」是屬於「<a href="http://packages.ubuntu.com/trusty/make">make</a>」這個套件。</p>
           <aside class="copyright" role="note">
             
               Copyright (c) foreachsam &ndash;
@@ -460,7 +427,7 @@ Press Ctrl-C to quit.</code></pre>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="make scripts 概念說明">
+        <a href="../../referance/manual/" title="manual">
           <span class="direction">
             上一頁
           </span>
@@ -470,7 +437,7 @@ Press Ctrl-C to quit.</code></pre>
             </div>
             <div class="stretch">
               <div class="title">
-                make scripts 概念說明
+                manual
               </div>
             </div>
           </div>
@@ -479,14 +446,14 @@ Press Ctrl-C to quit.</code></pre>
     </div>
     <div class="next">
       
-        <a href="../apt-project/" title="ex - apt project">
+        <a href="../../example/make-scripts/" title="make scripts 概念說明">
           <span class="direction">
             下一頁
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                ex - apt project
+                make scripts 概念說明
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
@@ -511,10 +478,10 @@ Press Ctrl-C to quit.</code></pre>
       </div>
     </main>
     <script>
-      var base_url = '../../../..';
+      var base_url = '../../..';
       var repo_id  = '';
     </script>
-    <script src="../../../../assets/javascripts/application-a10a824a49.js"></script>
+    <script src="../../../assets/javascripts/application-a10a824a49.js"></script>
     
     
       <script>
