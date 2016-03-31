@@ -269,11 +269,12 @@
           <h1 id="apt-get-install">apt-get install 範例</h1>
 <p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/apt-project">完整範例</a>」。</p>
 <h2 id="_1">資料夾結構</h2>
-<pre class="code"><code>./
+<pre class="code"><code>.
 ├── app
 │   ├── php
 │   │   ├── bin
 │   │   │   ├── apt-install.sh
+│   │   │   ├── clean.sh
 │   │   │   ├── configure.sh
 │   │   │   ├── install.sh
 │   │   │   └── usage.sh
@@ -283,6 +284,7 @@
 │   └── vim
 │       ├── bin
 │       │   ├── apt-install.sh
+│       │   ├── clean.sh
 │       │   ├── configure.sh
 │       │   ├── install.sh
 │       │   └── usage.sh
@@ -291,11 +293,13 @@
 │       └── Makefile
 ├── bin
 │   ├── apt-install.sh
+│   ├── clean.sh
 │   ├── install.sh
 │   └── usage.sh
-└── Makefile
+├── Makefile
+└── README.md
 
-8 directories, 16 files</code></pre>
+8 directories, 20 files</code></pre>
 
 
 <h2 id="makefile">Makefile</h2>
@@ -304,16 +308,19 @@
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
 
-.PHONY: usage install.sh apt-install
+.PHONY: usage install apt-install clean
 
 usage:
-    @$(THE_BIN_DIR_PATH)/usage.sh
+        @$(THE_BIN_DIR_PATH)/usage.sh
 
 install:
-    @$(THE_BIN_DIR_PATH)/install.sh
+        @$(THE_BIN_DIR_PATH)/install.sh
 
 apt-install:
-    @$(THE_BIN_DIR_PATH)/apt-install.sh</code></pre>
+        @$(THE_BIN_DIR_PATH)/apt-install.sh
+
+clean:
+        @$(THE_BIN_DIR_PATH)/clean.sh</code></pre>
 
 
 <h2 id="shell-script">Shell Script</h2>
@@ -326,10 +333,10 @@ THE_APP_DIR_PATH=$THE_BASE_DIR_PATH/../app
 
 
 for APP_DIR_PATH in $THE_APP_DIR_PATH/* ; do
-    THE_INSTALL_SCRIPT_PATH=$APP_DIR_PATH/bin/install.sh
+    THE_INSTALL_SCRIPT=$APP_DIR_PATH/bin/install.sh
 
-    if [ -f $THE_INSTALL_SCRIPT_PATH ]; then
-        $THE_INSTALL_SCRIPT_PATH
+    if [ -f $THE_INSTALL_SCRIPT ]; then
+        $THE_INSTALL_SCRIPT
     fi
 done</code></pre>
 
@@ -375,7 +382,8 @@ Ex:
 $ make
 $ make usage
 $ make install
-$ make apt-install</code></pre>
+$ make apt-install
+$ make clean</code></pre>
 
 
 <p>執行</p>
@@ -388,6 +396,11 @@ $ make apt-install</code></pre>
 
 
 <p>只會安裝所有的套件。</p>
+<p>執行</p>
+<pre class="code"><code>$ make clean</code></pre>
+
+
+<p>會刪除所有的tmp資料夾</p>
           <aside class="copyright" role="note">
             
               Copyright (c) foreachsam &ndash;
