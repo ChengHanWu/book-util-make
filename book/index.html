@@ -29,8 +29,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="./None">
+    <link rel="icon" type="image/x-icon" href="./None">
     <style>
       @font-face {
       	font-family: 'Icon';
@@ -47,7 +47,7 @@
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="./assets/stylesheets/application-b64b728552.css">
+    <link rel="stylesheet" href="./assets/stylesheets/application-54f87043f3.css">
     
       <link rel="stylesheet" href="./assets/stylesheets/palettes-05ab2406df.css">
     
@@ -133,7 +133,12 @@
     <div class="banner">
       
       <div class="name">
-        <strong>GNU Make 使用筆記 </strong>
+        <strong>
+          GNU Make 使用筆記
+          <span class="version">
+            
+          </span>
+        </strong>
         
       </div>
     </div>
@@ -165,7 +170,7 @@
       
         
   <li>
-    <a class="" title="manual" href="content/referance/manual/">
+    <a class="" title="manual" href="content/reference/manual/">
       manual
     </a>
     
@@ -277,7 +282,7 @@
     </div>
     <div class="next">
       
-        <a href="content/referance/manual/" title="manual">
+        <a href="content/reference/manual/" title="manual">
           <span class="direction">
             下一頁
           </span>
@@ -298,7 +303,8 @@
 
             </footer>
           
-        </div></article>
+        </div>
+      </article>
       <div class="results" role="status" aria-live="polite">
         <div class="scrollable">
           <div class="wrapper">
@@ -312,7 +318,7 @@
       var base_url = '.';
       var repo_id  = '';
     </script>
-    <script src="./assets/javascripts/application-a10a824a49.js"></script>
+    <script src="./assets/javascripts/application-997097ee0c.js"></script>
     
     
       <script>
@@ -330,11 +336,19 @@
         /* Track outbound links */
         var buttons = document.querySelectorAll('a');
         Array.prototype.map.call(buttons, function(item) {
-          if (item.host != window.location.host) {
+          if (item.host != document.location.host) {
             item.addEventListener('click', function() {
               var action = item.getAttribute('data-action') || 'follow';
               ga('send', 'event', 'outbound', action, item.href);
             });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
           }
         });
       </script>

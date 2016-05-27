@@ -13,22 +13,22 @@
       
       
       
-        <link rel="canonical" href="https://foreachsam.github.io/book-util-make/book/content/referance/manual/">
+        <link rel="canonical" href="https://foreachsam.github.io/book-util-make/book/content/reference/manual/">
       
       
         <meta name="author" content="foreachsam">
       
     
-    <meta property="og:url" content="https://foreachsam.github.io/book-util-make/book/content/referance/manual/">
+    <meta property="og:url" content="https://foreachsam.github.io/book-util-make/book/content/reference/manual/">
     <meta property="og:title" content="GNU Make 使用筆記">
-    <meta property="og:image" content="https://foreachsam.github.io/book-util-make/book/content/referance/manual//../../../">
+    <meta property="og:image" content="https://foreachsam.github.io/book-util-make/book/content/reference/manual//../../../">
     <meta name="apple-mobile-web-app-title" content="GNU Make 使用筆記">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../None">
+    <link rel="icon" type="image/x-icon" href="../../../None">
     <style>
       @font-face {
       	font-family: 'Icon';
@@ -45,7 +45,7 @@
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="../../../assets/stylesheets/application-b64b728552.css">
+    <link rel="stylesheet" href="../../../assets/stylesheets/application-54f87043f3.css">
     
       <link rel="stylesheet" href="../../../assets/stylesheets/palettes-05ab2406df.css">
     
@@ -135,7 +135,12 @@
     <div class="banner">
       
       <div class="name">
-        <strong>GNU Make 使用筆記 </strong>
+        <strong>
+          GNU Make 使用筆記
+          <span class="version">
+            
+          </span>
+        </strong>
         
       </div>
     </div>
@@ -421,7 +426,8 @@
 
             </footer>
           
-        </div></article>
+        </div>
+      </article>
       <div class="results" role="status" aria-live="polite">
         <div class="scrollable">
           <div class="wrapper">
@@ -435,7 +441,7 @@
       var base_url = '../../..';
       var repo_id  = '';
     </script>
-    <script src="../../../assets/javascripts/application-a10a824a49.js"></script>
+    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
     
     
       <script>
@@ -453,11 +459,19 @@
         /* Track outbound links */
         var buttons = document.querySelectorAll('a');
         Array.prototype.map.call(buttons, function(item) {
-          if (item.host != window.location.host) {
+          if (item.host != document.location.host) {
             item.addEventListener('click', function() {
               var action = item.getAttribute('data-action') || 'follow';
               ga('send', 'event', 'outbound', action, item.href);
             });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
           }
         });
       </script>
