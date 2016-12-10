@@ -13,7 +13,7 @@ usage()
 	cat <<EOF
 Ex:
 $ make
-$ make usage
+$ make help
 $ make status
 $ make deploy
 EOF

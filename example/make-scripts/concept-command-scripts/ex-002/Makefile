@@ -5,13 +5,26 @@ THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
 
-.PHONY: usage status deploy
+PATH := $(THE_BIN_DIR_PATH):$(PATH)
 
-usage:
-	@$(THE_BIN_DIR_PATH)/usage.sh
+default: help
+.PHONY: default
+
+help:
+	@help.sh
+.PHONY: help
 
 status:
-	@$(THE_BIN_DIR_PATH)/status.sh
+	@status.sh
+.PHONY: status
 
 deploy:
-	@$(THE_BIN_DIR_PATH)/deploy.sh
+	@deploy.sh
+.PHONY: deploy
+
+test:
+	@firefox
+.PHONY: test
+
+dump-path:
+	@echo $(PATH)
