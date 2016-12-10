@@ -378,7 +378,7 @@ deploy:
     echo deploying...</code></pre>
 
 
-<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-scripts/ex-001">完整範例</a>」</p>
+<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-basic/ex-001">完整範例</a>」</p>
 <blockquote>
 <p>關於「.PHONY」的用法，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html">4.6 Phony Targets</a>」</p>
 </blockquote>
@@ -449,7 +449,7 @@ deploying...</code></pre>
 <blockquote>
 <p>這裡加上「-s」，就不會把指令也印出來，請參考「GNU make / <a href="https://www.gnu.org/software/make/manual/html_node/Echoing.html">5.2 Recipe Echoing</a>」。</p>
 </blockquote>
-<p>或是改寫「<a href="./../../../../example/make-scripts/concept-command-scripts/ex-002/Makefile">Makefile</a>」，在指令前面加上「@」。</p>
+<p>或是改寫「<a href="./../../../../example/make-scripts/concept-command-basic/ex-002/Makefile">Makefile</a>」，在指令前面加上「@」。</p>
 <pre class="code"><code class="language-Makefile">.PHONY: help status deploy
 
 help:
@@ -466,7 +466,7 @@ deploy:
     @echo deploying...</code></pre>
 
 
-<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-scripts/ex-002">完整範例</a>」</p>
+<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/cconcept-command-basic/ex-002">完整範例</a>」</p>
 <p>執行</p>
 <pre class="code"><code class="language-sh">$ make</code></pre>
 
@@ -488,7 +488,7 @@ make deploy</code></pre>
 
 
 <h2 id="rule">設定預設「Rule」</h2>
-<p>或是改寫「<a href="./../../../../example/make-scripts/concept-command-scripts/ex-003/Makefile">Makefile</a>」，
+<p>或是改寫「<a href="./../../../../example/make-scripts/concept-command-basic/ex-003/Makefile">Makefile</a>」，
 最前面加上一個「Rule」名稱是「default」，然後相依「help」這個「Rule」，
 這樣就可以指定預設的「Rule」。</p>
 <blockquote>
@@ -512,9 +512,9 @@ help:
     @echo make deploy</code></pre>
 
 
-<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-scripts/ex-003">完整範例</a>」</p>
+<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-basic/ex-003">完整範例</a>」</p>
 <h2 id="phony">分散「.PHONY」</h2>
-<p>或是改寫「<a href="./../../../../example/make-scripts/concept-command-scripts/ex-004/Makefile">Makefile</a>」，
+<p>或是改寫「<a href="./../../../../example/make-scripts/concept-command-basic/ex-004/Makefile">Makefile</a>」，
 將「.PHONY」分散，寫到各個「Rule」底下，
 這樣的寫法除了可以防止「.PHONY」後面不會接了一長串之外，然後漏寫，
 分散到各個「Rule」底下，除了容易增加，也容易刪除。</p>
@@ -538,7 +538,7 @@ help:
 .PHONY: help</code></pre>
 
 
-<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-scripts/ex-004">完整範例</a>」</p>
+<p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/concept-command-basic/ex-004">完整範例</a>」</p>
 <h2 id="shell-script">把指令分散到「Shell Script」</h2>
 <p>上面的寫法，只需要一個「Makefile」搞定。</p>
 <p>而我個人慣用把這些指令，拆解到個別的「Shell Script」去，就會如同下面的結構。</p>
