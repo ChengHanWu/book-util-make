@@ -3,7 +3,9 @@
 # https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html ($ info make -n 'File Name Functions')
 # https://www.gnu.org/software/make/manual/html_node/Text-Functions.html ($ info make -n 'Text Functions')
 # http://php.net/manual/en/language.constants.predefined.php
-# https://www.gnu.org/software/make/manual/html_node/Environment.html#Environment ($  info make -n 'Environment')
+# https://www.gnu.org/software/make/manual/html_node/Environment.html ($ info make -n 'Environment')
+# http://manpages.ubuntu.com/manpages/xenial/en/man1/bash.1.html ($ man bash)
+# https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Variables.html ($ info bash -n 'Bourne Shell Variables')
 
 __FILE__ := $(abspath $(lastword $(MAKEFILE_LIST)))
 __DIR__ := $(abspath $(dir $(__FILE__)))
