@@ -304,15 +304,15 @@
 				 <h1 id="apt-get-install">apt-get install 範例</h1>
 <p>「<a href="https://www.github.com/foreachsam/book-util-make/tree/gh-pages/example/make-scripts/apt-project">完整範例</a>」。</p>
 <h2 id="_1">資料夾結構</h2>
-<pre class="code"><code>.
+<pre class="code"><code>./
 ├── app
 │   ├── php
 │   │   ├── bin
 │   │   │   ├── apt-install.sh
 │   │   │   ├── clean.sh
 │   │   │   ├── configure.sh
-│   │   │   ├── install.sh
-│   │   │   └── usage.sh
+│   │   │   ├── help.sh
+│   │   │   └── install.sh
 │   │   ├── etc
 │   │   │   └── package.list
 │   │   └── Makefile
@@ -321,16 +321,16 @@
 │       │   ├── apt-install.sh
 │       │   ├── clean.sh
 │       │   ├── configure.sh
-│       │   ├── install.sh
-│       │   └── usage.sh
+│       │   ├── help.sh
+│       │   └── install.sh
 │       ├── etc
 │       │   └── package.list
 │       └── Makefile
 ├── bin
 │   ├── apt-install.sh
 │   ├── clean.sh
-│   ├── install.sh
-│   └── usage.sh
+│   ├── help.sh
+│   └── install.sh
 ├── Makefile
 └── README.md
 
@@ -338,24 +338,31 @@
 
 
 <h2 id="makefile">Makefile</h2>
-<p>「<a href="./../../../../../example/make-scripts/apt-project/Makefile">Makefile</a>」內容如下</p>
+<p>撰寫「<a href="./../../../../../example/make-scripts/apt-project/Makefile">Makefile</a>」內容如下</p>
 <pre class="code"><code class="language-Makefile">THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
 
-.PHONY: usage install apt-install clean
+PATH := $(THE_BIN_DIR_PATH):$(PATH)
 
-usage:
-        @$(THE_BIN_DIR_PATH)/usage.sh
+default: help
+.PHONY: default
+
+help:
+    @help.sh
+.PHONY: help
 
 install:
-        @$(THE_BIN_DIR_PATH)/install.sh
+    @install.sh
+.PHONY: install
 
 apt-install:
-        @$(THE_BIN_DIR_PATH)/apt-install.sh
+    @apt-install.sh
+.PHONY: apt-install
 
 clean:
-        @$(THE_BIN_DIR_PATH)/clean.sh</code></pre>
+    @clean.sh
+.PHONY: clean</code></pre>
 
 
 <h2 id="shell-script">Shell Script</h2>
@@ -415,24 +422,24 @@ sudo apt-get install $(cat $THE_PACKAGE_LIST_FILE_PATH) -y</code></pre>
 
 Ex:
 $ make
-$ make usage
+$ make help
 $ make install
 $ make apt-install
 $ make clean</code></pre>
 
 
 <p>執行</p>
-<pre class="code"><code>$ make install</code></pre>
+<pre class="code"><code class="language-sh">$ make install</code></pre>
 
 
 <p>就會安裝所有的套件，並且執行相關的設定動作。</p>
 <p>執行</p>
-<pre class="code"><code>$ make apt-install</code></pre>
+<pre class="code"><code class="language-sh">$ make apt-install</code></pre>
 
 
 <p>只會安裝所有的套件。</p>
 <p>執行</p>
-<pre class="code"><code>$ make clean</code></pre>
+<pre class="code"><code class="language-sh">$ make clean</code></pre>
 
 
 <p>會刪除所有的tmp資料夾</p>

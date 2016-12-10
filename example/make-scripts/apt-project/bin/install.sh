@@ -6,9 +6,9 @@ THE_APP_DIR_PATH=$THE_BASE_DIR_PATH/../app
 
 
 for APP_DIR_PATH in $THE_APP_DIR_PATH/* ; do
-    THE_INSTALL_SCRIPT=$APP_DIR_PATH/bin/install.sh
+	THE_INSTALL_SCRIPT=$APP_DIR_PATH/bin/install.sh
 
-    if [ -f $THE_INSTALL_SCRIPT ]; then
-        $THE_INSTALL_SCRIPT
-    fi
+	if [ -f $THE_INSTALL_SCRIPT ]; then
+		$THE_INSTALL_SCRIPT
+	fi
 done

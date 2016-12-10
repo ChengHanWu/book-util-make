@@ -12,20 +12,20 @@ fi
 
 # call app/*/bin/clean.sh
 for APP_DIR_PATH in $THE_APP_DIR_PATH/* ; do
-    THE_CLEAN_SCRIPT=$APP_DIR_PATH/bin/clean.sh
+	THE_CLEAN_SCRIPT=$APP_DIR_PATH/bin/clean.sh
 
-    if [ -f $THE_CLEAN_SCRIPT ]; then
+	if [ -f $THE_CLEAN_SCRIPT ]; then
 		#echo $THE_CLEAN_SCRIPT
-        $THE_CLEAN_SCRIPT
-    fi
+		$THE_CLEAN_SCRIPT
+	fi
 done
 
 # rm app/*/tmp
 for APP_DIR_PATH in $THE_APP_DIR_PATH/* ; do
 	APP_TMP_DIR_PATH=$APP_DIR_PATH/tmp
 
-    if [ -d $APP_TMP_DIR_PATH ]; then
-    	echo 'rm '$APP_TMP_DIR_PATH
+	if [ -d $APP_TMP_DIR_PATH ]; then
+		echo 'rm '$APP_TMP_DIR_PATH
 		rm $APP_TMP_DIR_PATH -rf
-    fi
+	fi
 done
