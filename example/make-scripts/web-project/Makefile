@@ -5,31 +5,47 @@ THE_MAKEFILE_FILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 THE_BASE_DIR_PATH := $(abspath $(dir $(THE_MAKEFILE_FILE_PATH)))
 THE_BIN_DIR_PATH := $(THE_BASE_DIR_PATH)/bin
 
-.PHONY: usage web-server deploy git-add git-commit git-log git-pull git-push git-status
+PATH := $(THE_BIN_DIR_PATH):$(PATH)
 
-usage:
-	@$(THE_BIN_DIR_PATH)/usage.sh
+default: help
+.PHONY: default
+
+help:
+	@help.sh
+.PHONY: help
+
+php-install:
+	@php-install.sh
+.PHONY: php-install
 
 web-server:
-	@$(THE_BIN_DIR_PATH)/web-server.sh
+	@web-server.sh
+.PHONY: web-server
 
 deploy:
-	@$(THE_BIN_DIR_PATH)/deploy.sh
+	@deploy.sh
+.PHONY: deploy
 
 git-add:
-	@$(THE_BIN_DIR_PATH)/git-add.sh
+	@git-add.sh
+.PHONY: git-add
 
 git-commit:
-	@$(THE_BIN_DIR_PATH)/git-commit.sh
+	@git-commit.sh
+.PHONY: git-commit
 
 git-log:
-		@$(THE_BIN_DIR_PATH)/git-log.sh
+	@git-log.sh
+.PHONY: git-log
 
 git-pull:
-	@$(THE_BIN_DIR_PATH)/git-pull.sh
+	@git-pull.sh
+.PHONY: git-pull
 
 git-push:
-	@$(THE_BIN_DIR_PATH)/git-push.sh
+	@git-push.sh
+.PHONY: git-push
 
 git-status:
-	@$(THE_BIN_DIR_PATH)/git-status.sh
+	@git-status.sh
+.PHONY: git-status

@@ -13,7 +13,8 @@ usage()
 	cat <<EOF
 Ex:
 $ make
-$ make usage
+$ make help
+$ make php-install
 $ make web-server
 $ make deploy
 $ make git-add
